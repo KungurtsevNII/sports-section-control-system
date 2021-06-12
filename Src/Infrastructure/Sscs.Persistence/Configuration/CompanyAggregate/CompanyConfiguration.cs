@@ -12,7 +12,9 @@ namespace Sscs.Persistence.Configuration.CompanyAggregate
         protected override void PkConfiguration(EntityTypeBuilder<Company> builder)
         {
             builder.HasKey(a => a.Id);
-            builder.Property(d => d.Id).HasColumnName("Id");
+            builder.Property(d => d.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("Id");
         }
         
         protected override void FieldConfiguration(EntityTypeBuilder<Company> builder)
