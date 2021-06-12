@@ -5,20 +5,20 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Sscs.Domain.AggregatesModel.CompanyAggregate;
 
-namespace Sscs.Application.Company.Commands.CreateCompany
+namespace Sscs.Application.Company.Commands.RegisterCompany
 {
-    public class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand>
+    public class RegisterCompanyCommandHandler : IRequestHandler<RegisterCompanyCommand>
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-        public CreateCompanyCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager)
+        public RegisterCompanyCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
-        public Task<Unit> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
+        public Task<Unit> Handle(RegisterCompanyCommand request, CancellationToken cancellationToken)
         {
             Console.WriteLine("asdasd");
             return Unit.Task;

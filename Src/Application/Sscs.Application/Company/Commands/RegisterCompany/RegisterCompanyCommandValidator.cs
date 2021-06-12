@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Sscs.Application.Company.Commands.CreateCompany
+namespace Sscs.Application.Company.Commands.RegisterCompany
 {
-    public class CreateCompanyCommandValidator : AbstractValidator<CreateCompanyCommand>
+    public class RegisterCompanyCommandValidator : AbstractValidator<RegisterCompanyCommand>
     {
-        public CreateCompanyCommandValidator()
+        public RegisterCompanyCommandValidator()
         {
             RuleFor(x => x.Password).NotEmpty();
 

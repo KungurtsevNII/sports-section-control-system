@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sscs.Application.Company.Commands.CreateCompany;
+using Sscs.Application.Company.Commands.RegisterCompany;
 
 namespace Sscs.Api.Controllers
 {
@@ -14,7 +14,7 @@ namespace Sscs.Api.Controllers
 
         [HttpPost]
         public async Task<IActionResult> RegisterCompany(
-            [FromBody] CreateCompanyCommand command,
+            [FromBody] RegisterCompanyCommand command,
             CancellationToken ct = default)
         {
            await Mediator.Send(command, ct);
