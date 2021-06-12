@@ -21,6 +21,5 @@ namespace Sscs.Domain.Common
         {
             _domainEvents?.Remove(eventItem);
         }
-        
     }
 }

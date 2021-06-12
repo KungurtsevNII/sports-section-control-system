@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace Sscs.Application.Company.Commands.CreateCompany
+namespace Sscs.Application.Company.Commands.RegisterCompany
 {
-    public class CreateCompanyCommand : IRequest
+    public class RegisterCompanyCommand : IRequest
     {
         public string CompanyOwnerEmail { get; set; }
 
