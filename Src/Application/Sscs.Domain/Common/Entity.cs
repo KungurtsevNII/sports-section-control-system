@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Sscs.Domain.Common
 {
@@ -7,7 +6,7 @@ namespace Sscs.Domain.Common
     {
         private List<INotification> _domainEvents;
         
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         
         public IReadOnlyList<INotification> DomainEvents => _domainEvents;
         

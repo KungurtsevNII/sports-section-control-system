@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sscs.Application.Common;
 using Sscs.Domain.AggregatesModel.CompanyAggregate;
 
 namespace Sscs.Persistence
@@ -12,10 +14,12 @@ namespace Sscs.Persistence
         {
             services.AddDbContext<SscsDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("Main")));
-            
+
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<SscsDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddScoped<ISscsDbContext>(provider => provider.GetService<SscsDbContext>());
             
             return services;
         }

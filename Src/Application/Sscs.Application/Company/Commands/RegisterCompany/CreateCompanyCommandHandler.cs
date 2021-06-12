@@ -11,17 +11,20 @@ namespace Sscs.Application.Company.Commands.RegisterCompany
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ICompanyRepository _companyRepository;
 
-        public RegisterCompanyCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager)
+        public RegisterCompanyCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager, ICompanyRepository companyRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _companyRepository = companyRepository;
         }
 
-        public Task<Unit> Handle(RegisterCompanyCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(RegisterCompanyCommand request, CancellationToken cancellationToken = default)
         {
+            await _companyRepository.AddCompany(request.CompanyName, cancellationToken);
             Console.WriteLine("asdasd");
-            return Unit.Task;
+            return Unit.Value;
         }
     }
 }
