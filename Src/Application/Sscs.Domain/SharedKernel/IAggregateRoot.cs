@@ -1,4 +1,4 @@
-﻿namespace Sscs.Domain.Common
+﻿namespace Sscs.Domain.SharedKernel
 {
     public interface IAggregateRoot { }
 }

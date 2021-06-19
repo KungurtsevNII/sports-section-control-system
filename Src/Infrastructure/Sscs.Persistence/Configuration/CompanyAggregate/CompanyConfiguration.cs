@@ -13,14 +13,15 @@ namespace Sscs.Persistence.Configuration.CompanyAggregate
         {
             builder.HasKey(a => a.Id);
             builder.Property(d => d.Id)
-                .ValueGeneratedOnAdd()
+                .HasDefaultValueSql("uuid_generate_v4()")
                 .HasColumnName("Id");
         }
         
         protected override void FieldConfiguration(EntityTypeBuilder<Company> builder)
         {
+            base.FieldConfiguration(builder);
+            
             builder.Property(x => x.Name).HasColumnName("Name");
-
             builder.HasMany(x => x.CompanyUsers).WithOne(x => x.UserCompany);
         }
     }

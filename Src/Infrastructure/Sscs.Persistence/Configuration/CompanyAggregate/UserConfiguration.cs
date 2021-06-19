@@ -8,6 +8,8 @@ namespace Sscs.Persistence.Configuration.CompanyAggregate
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.Property(x => x.Id).HasDefaultValueSql("uuid_generate_v4()");
+            
             builder.Property(x => x.CompanyId).HasColumnName("CompanyId");
 
             builder

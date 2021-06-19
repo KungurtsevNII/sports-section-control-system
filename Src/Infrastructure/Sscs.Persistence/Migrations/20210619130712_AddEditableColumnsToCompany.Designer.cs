@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Sscs.Persistence;
@@ -9,9 +10,10 @@ using Sscs.Persistence;
 namespace Sscs.Persistence.Migrations
 {
     [DbContext(typeof(SscsDbContext))]
-    partial class SscsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210619130712_AddEditableColumnsToCompany")]
+    partial class AddEditableColumnsToCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
