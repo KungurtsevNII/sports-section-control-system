@@ -14,13 +14,9 @@ namespace Sscs.Repository
             _dbContext = dbContext;
         }
 
-        public async Task AddCompany(string companyName, CancellationToken ct = default)
+        public async Task AddCompany(Company company, CancellationToken ct = default)
         {
-            _dbContext.Companies.Add(new Company
-            {
-                Name = companyName
-            });
-
+            _dbContext.Companies.Add(company);
             await _dbContext.SaveChangesAsync(ct);
         }
     }

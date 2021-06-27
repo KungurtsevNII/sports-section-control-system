@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -9,21 +10,30 @@ namespace Sscs.Application.Company.Commands.RegisterCompany
 {
     public class RegisterCompanyCommandHandler : IRequestHandler<RegisterCompanyCommand>
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly IMediator _mediator;
         private readonly ICompanyRepository _companyRepository;
 
-        public RegisterCompanyCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager, ICompanyRepository companyRepository)
+        public RegisterCompanyCommandHandler(
+            IMediator mediator, 
+            ICompanyRepository companyRepository)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _mediator = mediator;
             _companyRepository = companyRepository;
         }
 
         public async Task<Unit> Handle(RegisterCompanyCommand request, CancellationToken cancellationToken = default)
         {
-            await _companyRepository.AddCompany(request.CompanyName, cancellationToken);
-            Console.WriteLine("asdasd");
+            var registeredCompany = new Domain.AggregatesModel.CompanyAggregate.Company(request.CompanyName);
+            registeredCompany.RegisterCompany(request.CompanyOwnerEmail);
+            
+            await _companyRepository.AddCompany(registeredCompany, cancellationToken);
+
+            // todo требуется механизм dispatch.
+            foreach (var domainEvent in registeredCompany.DomainEvents)
+            {
+                await _mediator.Publish(domainEvent, cancellationToken);
+            }
+            
             return Unit.Value;
         }
     }

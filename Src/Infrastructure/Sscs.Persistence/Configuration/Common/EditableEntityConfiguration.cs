@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Sscs.Domain.Common;
+using Sscs.Domain.SharedKernel;
 
 namespace Sscs.Persistence.Configuration.Common
 {
@@ -9,10 +9,10 @@ namespace Sscs.Persistence.Configuration.Common
     {
         protected override void FieldConfiguration(EntityTypeBuilder<T> builder)
         {
-            builder.Property(d => d.CreateDate).HasColumnName("CreatedAt");
+            builder.Property(d => d.CreateDateUtc).HasColumnName("CreatedAt");
             builder.Property(d => d.CreateUserId).HasColumnName("CreatedBy");
-            builder.Property(d => d.IsDeleted).HasColumnName("IsDeleted");
-            builder.Property(d => d.ModifyDate).HasColumnName("ModifiedAt");
+            builder.Property(d => d.IsDeleted).HasColumnName("IsDeleted").HasDefaultValue(false);
+            builder.Property(d => d.ModifyDateUtc).HasColumnName("ModifiedAt");
             builder.Property(d => d.ModifyUserId).HasColumnName("ModifiedBy");
         }
     }

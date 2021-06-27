@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace Sscs.Domain.AggregatesModel.CompanyAggregate
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<Guid>
     {
-        public long CompanyId { get; set; }
+        public Guid CompanyId { get; set; }
         public Company UserCompany { get; set; }
     }
 }

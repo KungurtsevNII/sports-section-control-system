@@ -12,6 +12,6 @@ namespace Sscs.Application.Common
         
         public DbSet<User> Users { get; set; }
         
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
