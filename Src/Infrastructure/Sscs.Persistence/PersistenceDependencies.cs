@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sscs.Application.Common;
@@ -15,6 +16,8 @@ namespace Sscs.Persistence
         {
             services.AddDbContext<SscsDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("Main")));
+            
+            services.AddScoped<IDesignTimeDbContextFactory<SscsDbContext>, SscsDbContextFactory>();
 
             services.AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<SscsDbContext>()

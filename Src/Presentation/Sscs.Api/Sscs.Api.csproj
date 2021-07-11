@@ -16,8 +16,4 @@
       <ProjectReference Include="..\..\Infrastructure\Sscs.Repository\Sscs.Repository.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Extensions" />
-    </ItemGroup>
-
 </Project>

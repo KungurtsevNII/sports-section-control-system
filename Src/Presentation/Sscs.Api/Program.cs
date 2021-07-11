@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Sscs.Api.Extensions;
 
 namespace Sscs.Api
 {
@@ -7,7 +8,7 @@ namespace Sscs.Api
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Migrate().Run();
         }
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
