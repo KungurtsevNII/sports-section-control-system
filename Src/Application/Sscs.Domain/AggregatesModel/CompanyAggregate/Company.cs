@@ -18,17 +18,9 @@ namespace Sscs.Domain.AggregatesModel.CompanyAggregate
             Name = name;
         }
         
-        public void RegisterCompany(string rootUserEmail)
+        public void RegisterCompany(User companyOwner)
         {
-            Id = Guid.NewGuid();
-            // В дальнейшем надо давать здесь рутовые права на компанию.
-            var rootCompanyUser = new User
-            {
-                Email = rootUserEmail, 
-                CompanyId = Id,
-            };
-            CompanyUsers.Add(rootCompanyUser);
-            
+            CompanyUsers.Add(companyOwner);
             AddDomainEvent(new NewCompanyRegisteredEvent(Id));
         }
     }

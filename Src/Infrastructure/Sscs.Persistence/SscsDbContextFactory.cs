@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace Sscs.Persistence
 {
@@ -7,9 +10,15 @@ namespace Sscs.Persistence
     {
         public SscsDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<SscsDbContext>();
-            // TODO надо как-то натравить на appsettings, либо создать отельно запускаемое приложение для миграция.
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=sscs;Username=postgres;Password=password");
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.Development.json", true)
+                .Build();
+
+            var connectionString = configuration.GetConnectionString("Main");
+            
+            var optionsBuilder = new DbContextOptionsBuilder<SscsDbContext>().UseNpgsql(connectionString);
 
             return new SscsDbContext(optionsBuilder.Options);
         }

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Sscs.Application.Company.Commands.RegisterCompany
+namespace Sscs.Application.Companies.Commands.RegisterCompany
 {
     public class RegisterCompanyCommandValidator : AbstractValidator<RegisterCompanyCommand>
     {

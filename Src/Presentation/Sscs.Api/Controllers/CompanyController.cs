@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sscs.Application.Company.Commands.RegisterCompany;
+using Sscs.Application.Companies.Commands.RegisterCompany;
 
 namespace Sscs.Api.Controllers
 {

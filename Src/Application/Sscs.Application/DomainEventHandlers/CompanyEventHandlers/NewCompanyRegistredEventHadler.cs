@@ -1,11 +1,10 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Sscs.Domain.DomainEvents.Company;
 
-namespace Sscs.Application.DomainEventHandlers.Company
+namespace Sscs.Application.DomainEventHandlers.CompanyEventHandlers
 {
     public class NewCompanyRegisteredEventHandler : INotificationHandler<NewCompanyRegisteredEvent>
     {
