@@ -33,7 +33,6 @@ namespace Sscs.Application.Companies.Commands.RegisterCompany
             
             companyForRegistration.RegisterCompany(companyOwner);
             
-            
             await _companyRepository.AddCompany(companyForRegistration, cancellationToken);
 
             // todo требуется механизм dispatch.

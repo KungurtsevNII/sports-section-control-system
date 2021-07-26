@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Sscs.Application.Common;
+using Sscs.Application.Common.Interfaces;
 using Sscs.Domain.AggregatesModel.CompanyAggregate;
 
 namespace Sscs.Repository

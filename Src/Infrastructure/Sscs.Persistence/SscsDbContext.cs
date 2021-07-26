@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Sscs.Application.Common;
+using Sscs.Application.Common.Interfaces;
 using Sscs.Domain.AggregatesModel.CompanyAggregate;
 using Sscs.Domain.SharedKernel;
 

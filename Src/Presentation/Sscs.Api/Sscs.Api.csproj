@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Application\Sscs.Application\Sscs.Application.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\Sscs.Extensions.MassTransit\Sscs.Extensions.MassTransit.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Sscs.Persistence\Sscs.Persistence.csproj" />
       <ProjectReference Include="..\..\Infrastructure\Sscs.Repository\Sscs.Repository.csproj" />
     </ItemGroup>

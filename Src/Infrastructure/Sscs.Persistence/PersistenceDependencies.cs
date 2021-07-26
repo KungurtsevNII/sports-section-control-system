@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sscs.Application.Common;
+using Sscs.Application.Common.Interfaces;
 using Sscs.Domain.AggregatesModel.CompanyAggregate;
 
 namespace Sscs.Persistence

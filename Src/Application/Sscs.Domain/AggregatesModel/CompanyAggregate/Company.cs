@@ -20,6 +20,7 @@ namespace Sscs.Domain.AggregatesModel.CompanyAggregate
         
         public void RegisterCompany(User companyOwner)
         {
+            Id = Guid.NewGuid();
             CompanyUsers.Add(companyOwner);
             AddDomainEvent(new NewCompanyRegisteredEvent(Id));
         }
