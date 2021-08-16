@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>dotnet-Sscs.NotificationConsumer.Host-F3EBE58B-C6B8-492A-A024-BA2F5B01DD35</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EasyNetQ" Version="6.3.1" />
+        <PackageReference Include="EasyNetQ.DI.Microsoft" Version="6.3.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Application\Sscs.Application\Sscs.Application.csproj" />
+    </ItemGroup>
+</Project>

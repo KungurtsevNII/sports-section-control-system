@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Sscs.Application;
-using Sscs.Extensions.MassTransit;
+using Sscs.Infrastructure;
 using Sscs.Persistence;
 using Sscs.Repository;
 
@@ -27,7 +27,7 @@ namespace Sscs.Api
             services.AddApplication();
             services.AddPersistence(_configuration);
             services.AddRepositories();
-            services.AddRabbitMqBus();
+            services.AddInfrastructure(_configuration);
             
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Sscs.Api", Version = "v1"}); });
         }
